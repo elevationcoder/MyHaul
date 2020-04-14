@@ -12,7 +12,7 @@
   <body>
     <% if session[:user_id] %>   
     <nav>
-      You are logged in as: <%= session[:user_id] %>
+      You are logged in as: <%= @current_user.email %>
     </nav>
     <% end %>
     <%= yield %>
