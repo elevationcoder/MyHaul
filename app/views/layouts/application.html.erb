@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% if session[:user_id] %>   
+    <nav>
+      You are logged in as: <%= session[:user_id] %>
+    </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>
