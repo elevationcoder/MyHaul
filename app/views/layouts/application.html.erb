@@ -12,7 +12,8 @@
   <body>
     <% if session[:user_id] %>   
     <nav>
-      You are logged in as: <%= @current_user.email %>
+      You are logged in as: <%= @current_user.email %> | 
+        <a href="/logout">Logout</a>
     </nav>
     <% end %>
     <%= yield %>
