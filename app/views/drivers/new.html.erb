@@ -1,0 +1,12 @@
+<h1>Request a Driver</h1>
+
+<%= form_for(@driver) do |f| %>
+    <%= f.label :truck_type %>
+    <%= f.text_field :truck_type %><br>
+
+    <%= f.label :truck_size %>
+    <%= f.text_field :truck_size %>
+
+    <%= f.submit "Find Driver"%>
+
+<% end %>

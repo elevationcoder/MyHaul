@@ -5,17 +5,16 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new
-        @user.email = params[:email]
-        @user.save
+        user = User.create(user_params)
+        binding.pry
 
-        redirect_to "/login"
+        redirect_to controller: 'welcome', action: 'home'
     end
 
     private
 
     def user_params
-        params.require(:users).permit(:email)
+        params.require(:user).permit(:email)
     end
 
 end

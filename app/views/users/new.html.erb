@@ -1,7 +1,7 @@
 <h1>Register for </h1>
 
-<%= form_tag("/users") do %>
-    <%= label_tag :email%>
-    <%= text_field_tag :email %><br>
-    <%= submit_tag "Register"%>
+<%= form_for @user do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
+    <%= f.submit "Register" %>
 <% end %> 
