@@ -1,7 +1,7 @@
 class Offer < ApplicationRecord
     belongs_to :user
-    belongs_to :driver
-    belongs_to :contract
-    has_many :drivers, through: :users
-    has_many :users, through: :drivers
+    belongs_to :driver, optional: true
+    scope :open, -> { where(driver_id: nil) }
+    scope :above, ->(price) { where("price_offer > ?", price )}
+
 end

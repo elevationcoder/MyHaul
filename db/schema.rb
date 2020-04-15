@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_04_15_175813) do
 
-  create_table "contracts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "driver_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["driver_id"], name: "index_contracts_on_driver_id"
-    t.index ["user_id"], name: "index_contracts_on_user_id"
-  end
-
   create_table "drivers", force: :cascade do |t|
     t.string "name"
     t.string "truck_type"
@@ -32,18 +23,18 @@ ActiveRecord::Schema.define(version: 2020_04_15_175813) do
   create_table "offers", force: :cascade do |t|
     t.string "job_name"
     t.decimal "price_offer"
+    t.datetime "due_date"
     t.integer "user_id"
     t.integer "driver_id"
-    t.integer "contract_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["contract_id"], name: "index_offers_on_contract_id"
     t.index ["driver_id"], name: "index_offers_on_driver_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

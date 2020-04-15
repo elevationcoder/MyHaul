@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+    
+    validates :password, presence: true
+    has_secure_password
     has_many :offers
-    has_many :contracts
-    has_many :drivers, through: :contracts
-    has_many :contracts, through: :offers
+    has_many :drivers, through: :offers
 end

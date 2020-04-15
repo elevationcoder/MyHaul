@@ -3,5 +3,10 @@
 <%= form_for @user do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email %><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password_digest %><br>
+    <%= f.label "Password Confirmation"%>
+    <%= f.password_field :password_confirmation%>
     <%= f.submit "Register" %>
 <% end %> 
