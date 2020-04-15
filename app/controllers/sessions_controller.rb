@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user
             login(@user)
-            redirect_to controller: 'welcome', action: 'home'
+            redirect_to '/'
         else
             redirect_to "/login", :notice => "Not Here!"
         end

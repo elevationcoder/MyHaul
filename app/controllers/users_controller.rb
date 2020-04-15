@@ -1,15 +1,20 @@
 class UsersController < ApplicationController
+    
 
     def new
         @user = User.new
     end
 
     def create
-        user = User.create(user_params)
-        binding.pry
-
-        redirect_to controller: 'welcome', action: 'home'
+        @user = User.create(user_params)
+        if @user.errors.any?
+            render :new
+        else
+            session[:user_id] = @user.id
+            redirect_to :root
+        end
     end
+
 
     private
 
