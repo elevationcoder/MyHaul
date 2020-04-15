@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-    before_action :current_user
+    before_action :authentication_required
 
     def home
     end
