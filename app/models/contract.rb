@@ -1,4 +1,5 @@
 class Contract < ApplicationRecord
-    belongs_to :user, class_name: "User"
-    belongs_to :driver, class_name: "Post"
+    belongs_to :user
+    belongs_to :driver
+    has_many :drivers, through: :offers
 end
