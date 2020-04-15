@@ -21,7 +21,7 @@ class DriversController < ApplicationController
     private
 
     def driver_params
-        params.require(:driver).permit(:truck_type, :truck_size)
+        params.require(:driver).permit(:truck_type, :truck_size, :contracts)
     end
 
 end
