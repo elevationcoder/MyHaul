@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
                 redirect_to root_path
             elsif params[:password].blank? alert: "Not Here!"
                 redirect_to action: 'new'
+            end
         else
             redirect_to "/", :notice => "Not Here!"
         end

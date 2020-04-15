@@ -12,7 +12,11 @@ class UsersController < ApplicationController
             render :new
         else
             session[:user_id] = @user.id
-            redirect_to :root
+            if logged_in?
+                redirect_to :root
+            else
+                redirect_to new_user_path(current_user)
+            end
         end
     end
 
