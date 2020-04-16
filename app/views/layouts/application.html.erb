@@ -12,7 +12,7 @@
   <body> 
     <% if session[:user_id] %>   
     <nav>
-      You are logged in as: <%= @current_user.email %> | 
+      You are logged in as: <%=  %> | 
         <a href="/logout">Logout</a> | <a href="/offers/new">Make Delivery Request</a> | 
         <a href="/">Home</a>
     </nav>

@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-    before_action :authentication_required
+    # before_action :authentication_required
 
     def index
         @drivers = Driver.all
@@ -21,7 +21,7 @@ class DriversController < ApplicationController
     private
 
     def driver_params
-        params.require(:driver).permit(:truck_type, :truck_size)
+        params.require(:driver).permit(:name, :password, :password_confirmation, :license, :truck_type, :truck_size)
     end
 
 end
