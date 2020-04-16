@@ -6,10 +6,10 @@ class DriverSessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(email: params[:email])
-        if @user
-            if @user.authenticate(params[:password])
-                login(@user)
+        @driver = Driver.find_by(email: params[:email])
+        if @driver
+            if @driver.authenticate(params[:password])
+                login(@driver)
                 redirect_to root_path
             elsif params[:password].blank? alert: "Not Here!"
                 redirect_to action: 'new'

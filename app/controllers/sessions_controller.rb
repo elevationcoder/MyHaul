@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         if @user
             if @user.authenticate(params[:password])
                 login(@user)
-                redirect_to root_path
+                redirect_to @user
             elsif params[:password].blank? alert: "Not Here!"
                 redirect_to action: 'new'
             end

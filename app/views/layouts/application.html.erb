@@ -10,10 +10,10 @@
   </head>
 
   <body> 
-    <% if session[:user_id] %>   
+    <% if current_user %>   
     <nav>
-      You are logged in as: <%=  %> | 
-        <a href="/logout">Logout</a> | <a href="/offers/new">Make Delivery Request</a> | 
+      You are logged in as: <%= current_user.email  %> | 
+        <%= link_to 'Logout', current_user_type == User ? user_logout_path : driver_logout_path, method: "post" %> | <a href="/offers/new">Make Delivery Request</a> | 
         <a href="/">Home</a>
     </nav>
     <% end %>

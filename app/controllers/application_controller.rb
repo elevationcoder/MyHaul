@@ -6,10 +6,15 @@ class ApplicationController < ActionController::Base
 
      private
 
-     def authentication_required
+    def authentication_required
         if !logged_in?
             redirect_to "/"
         end
     end
 
+    def driver_authenication_required
+        if !driver_on?
+            redirect_to '/'
+        end
+    end 
 end
