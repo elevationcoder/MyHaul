@@ -1,0 +1,11 @@
+<br>
+<%= form_for @offer do |f| %>
+  <%= f.label :job_name %>
+  <%= f.text_field :job_name %><br>
+  <%= f.label :price_offer %>
+  <%= f.text_field :price_offer %><br>
+  <%= f.label :due_date %>
+  <%= f.datetime_field :due_date %>
+  
+  <%= f.submit %>
+<% end %>

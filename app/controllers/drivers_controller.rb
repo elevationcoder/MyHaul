@@ -12,7 +12,7 @@ class DriversController < ApplicationController
     def create
         @driver = Driver.create(driver_params)
         if @driver.save
-            redirect_to "/drivers/index"            
+            redirect_to drivers_path(@driver)            
         else
             render :new
         end
@@ -21,7 +21,7 @@ class DriversController < ApplicationController
     private
 
     def driver_params
-        params.require(:driver).permit(:truck_type, :truck_size, :contracts)
+        params.require(:driver).permit(:truck_type, :truck_size)
     end
 
 end
