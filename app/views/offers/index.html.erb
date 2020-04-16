@@ -1,0 +1,9 @@
+<h1>All Open Offers</h1>
+
+<ol>
+    <% @offers.open.each do |o| %>
+        <li>Job Name: <%= o.job_name %><br>
+        Price Offer: <%= o.price_offer %><br>
+        Due by: <%=o.due_date%></li><br>
+    <% end %>
+</ol>
