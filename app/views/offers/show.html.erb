@@ -4,3 +4,11 @@ Price offer: <%= @offer.price_offer %><br>
 Due By: <%= @offer.due_date%><br>
 <br>
 Submitted by: <%= @offer.user.email %>
+
+<% if @offer.driver %>
+    <h3>Accepted by: <%= @offer.driver.email %></h3>
+<% else %>
+    <%= form_for(@offer) do |f| %>
+        <%= f.submit "Accept this Offer" %>
+    <% end %>
+<% end %>

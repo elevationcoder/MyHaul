@@ -29,12 +29,14 @@ class OffersController < ApplicationController
     end
 
     def update
-        if @offer.update(offer_params)
-          redirect_to @offer 
+        @offer.driver = current_user
+        if @offer.save
+            redirect_to @offer
         else
-          render 'edit'
+            render :show
         end
-      end
+    end
+
 
 
     def destroy
@@ -45,7 +47,7 @@ class OffersController < ApplicationController
     private
 
     def offer_params
-        params.require(:offer).permit(:job_name, :price_offer, :due_date)
+        params.require(:offer).permit(:job_name, :price_offer, :due_date, :driver_ids[])
     end
 
     def find_offer
