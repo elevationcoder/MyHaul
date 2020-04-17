@@ -8,15 +8,17 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.find_by(email: params[:email])
-        if @user
+        if @user 
             if @user.authenticate(params[:password])
-                login(@user)
-                redirect_to @user
-            elsif params[:password].blank? alert: "Not Here!"
+                session[:user_id] = @user.id
+                flash[:message] = "You successfully logged in! Welcome, #{@user.email}!"
+                redirect_to user_path(@user)
+            elsif params[:password].blank?
+                flash[:message] = "Password field is blank!" 
                 redirect_to action: 'new'
+            else
+                redirect_to "/"
             end
-        else
-            redirect_to "/", :notice => "Not Here!"
         end
     end
 

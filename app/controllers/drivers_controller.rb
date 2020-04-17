@@ -5,6 +5,11 @@ class DriversController < ApplicationController
         @drivers = Driver.all
     end
 
+    def show
+        @driver = Driver.find_by(params[:id])
+    end
+
+
     def new
         @driver = Driver.new
     end
@@ -21,7 +26,7 @@ class DriversController < ApplicationController
     private
 
     def driver_params
-        params.require(:driver).permit(:name, :password, :password_confirmation, :license, :truck_type, :truck_size)
+        params.require(:driver).permit(:name, :email, :password, :password_confirmation, :license, :truck_type, :truck_size)
     end
 
 end

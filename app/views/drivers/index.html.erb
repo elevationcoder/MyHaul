@@ -1,6 +1,6 @@
 <h1>All Drivers</h1>
 <ol>
 <% @drivers.each do |d| %>
-    <li> <%=link_to driver_path(d) %><%= d.truck_type %> - <%=d.truck_size %></li>
+    <li> <%=link_to "#{d.truck_type} - #{d.truck_size}", driver_path(d) %></li>
 <% end %>
 </ol>

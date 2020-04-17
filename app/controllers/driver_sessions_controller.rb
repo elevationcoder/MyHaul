@@ -6,11 +6,13 @@ class DriverSessionsController < ApplicationController
     end
 
     def create
+        binding.pry
         @driver = Driver.find_by(email: params[:email])
+        
         if @driver
             if @driver.authenticate(params[:password])
-                login(@driver)
-                redirect_to root_path
+                session[:driver_id] = @driver.id
+                redirect_to drivers_path(@drivers)
             elsif params[:password].blank? alert: "Not Here!"
                 redirect_to action: 'new'
             end
