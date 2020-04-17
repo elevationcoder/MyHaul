@@ -10,6 +10,9 @@ class OffersController < ApplicationController
         @offer = current_user.offers.build
     end
 
+    def show
+    end
+
     def create
         # binding.pry
         @offer = current_user.offers.build(offer_params)

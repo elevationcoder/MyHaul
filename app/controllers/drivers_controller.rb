@@ -17,7 +17,7 @@ class DriversController < ApplicationController
     def create
         @driver = Driver.create(driver_params)
         if @driver.save
-            redirect_to driver_path(@driver)            
+            redirect_to :root            
         else
             render :new
         end

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :drivers, only: [:index, :show, :new, :create, :update, :destroy] do
+  resources :drivers, only: [:index, :new, :create, :update, :destroy] do
     resources :reviews, except: [:show], shallow: true
   end
 
-  resources :offers, only: [:show, :update] 
+  resources :offers, shallow: true 
   
     
   
