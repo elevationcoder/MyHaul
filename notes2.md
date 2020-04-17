@@ -4,7 +4,7 @@ id      name        truck_type     truck_size       requestor_user_id       resp
 
 
 
-
+<a href="/offers/new">Make Delivery Request</a>
 
 
 

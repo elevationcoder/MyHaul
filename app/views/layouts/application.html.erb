@@ -10,13 +10,30 @@
   </head>
 
   <body> 
-    <% if current_user %>   
+      
     <nav>
-      You are logged in as: <%= current_user.email  %> | 
-        <%= link_to 'Logout', current_user_type == User ? user_logout_path : driver_logout_path, method: "post" %> | <a href="/offers/new">Make Delivery Request</a> | 
-        <a href="/">Home</a>
-    </nav>
+      <section>
+        <%= link_to_unless_current "Open Offers", offers_path%>
+      </section>
+      <section class="utility">
+        <% if current_user %> 
+        <%= link_to_unless_current "Home", root_path %> | 
+        <%= link_to_unless_current "Make New Delivery Request", new_offer_path %> |
+        <%= link_to_unless_current 'Logout', current_user_type == User ? user_logout_path : driver_logout_path, method: "post" %> | 
+        <a href="/users/login">Employer Login</a> | <a href="/drivers/login">Driver Login</a> |
+        <a href="/users/register">New Employer</a> | <a href="/drivers/signup">New Driver</a><br><br>  
+        
+      </section>
+      <section>
+      
+      You are logged in as: <%= current_user.email  %>
+
+      </section>    
+    </nav><br>
     <% end %>
+    
     <%= yield %>
   </body>
+  <footer><p text-color="blue">&copy 2020 MyHaul by Ian Marrs </p></footer>
 </html>
+

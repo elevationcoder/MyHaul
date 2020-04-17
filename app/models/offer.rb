@@ -4,4 +4,8 @@ class Offer < ApplicationRecord
     scope :open, -> { where(driver_id: nil) }
     scope :above, ->(price) { where("price_offer > ?", price )}
 
+    # scope :accepted_by, ->(driver) { }
+
+    # def accepted_by(driver)
+    #     self.
 end
