@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/drivers/signup', to: 'drivers#new'
   post '/drivers', to: 'drivers#create'
 
+  
   get '/drivers/login', to: 'driver_sessions#new'
   post '/drivers/driver_sessions', to: 'driver_sessions#create'
   post '/logout', to: 'driver_sessions#destroy', as: 'driver_logout'
