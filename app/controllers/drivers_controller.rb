@@ -1,12 +1,11 @@
 class DriversController < ApplicationController
-    # before_action :authentication_required
+    before_action :driver_info, only: [:show, :update, :edit, :destroy]
 
     def index
-        @drivers = Driver.all
+        @drivers = Driver.search(params[:search])
     end
 
     def show
-        @driver = Driver.find_by(params[:id])
     end
 
 
@@ -23,10 +22,17 @@ class DriversController < ApplicationController
         end
     end
 
+    def update
+    end
+
     private
 
     def driver_params
-        params.require(:driver).permit(:name, :email, :password, :password_confirmation, :license, :truck_type, :truck_size)
+        params.require(:driver).permit(:name, :email, :password, :password_confirmation, :license, :truck_type, :truck_size, :search)
+    end
+
+    def driver_info
+        @driver = Driver.find(params[:id])
     end
 
 end

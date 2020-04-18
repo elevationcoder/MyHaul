@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :drivers, only: [:index, :new, :create, :update, :destroy] do
-    resources :reviews, except: [:show], shallow: true
-  end
+  
 
   resources :offers, shallow: true 
   
@@ -20,11 +18,17 @@ Rails.application.routes.draw do
   get '/drivers/login', to: 'driver_sessions#new'
   post '/drivers/driver_sessions', to: 'driver_sessions#create'
   post '/logout', to: 'driver_sessions#destroy', as: 'driver_logout'
-
+  
   get '/users/login', to: 'sessions#new'
   post '/users/sessions', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy', as: 'user_logout'
+
+  resources :drivers, except: [:show], shallow: true do
+    resources :reviews, except: [:show], shallow: true
+  end
+
   resources :users 
+  
   root 'welcome#home'
 
 end
