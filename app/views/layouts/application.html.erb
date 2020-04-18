@@ -13,15 +13,16 @@
       
     <nav>
       <section>
-        <%= link_to_unless_current "Open Offers", offers_path%>
+        <%= link_to_unless_current "Open Offers", offers_path%> |
+        <a href="/users/login">Employer Login</a> | <a href="/drivers/login">Driver Login</a> |
+        <a href="/users/register">New Employer</a> | <a href="/drivers/signup">New Driver</a><br><br>
       </section>
       <section class="utility">
         <% if current_user %> 
         <%= link_to_unless_current "Home", root_path %> | 
         <%= link_to_unless_current "Make New Delivery Request", new_offer_path %> |
         <%= link_to_unless_current 'Logout', current_user_type == User ? user_logout_path : driver_logout_path, method: "post" %> | 
-        <a href="/users/login">Employer Login</a> | <a href="/drivers/login">Driver Login</a> |
-        <a href="/users/register">New Employer</a> | <a href="/drivers/signup">New Driver</a><br><br>  
+          
         
       </section>
       <section>
@@ -30,6 +31,7 @@
 
       </section>    
     </nav><br>
+    
     <% end %>
     
     <%= yield %>

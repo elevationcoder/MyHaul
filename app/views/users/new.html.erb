@@ -1,12 +1,20 @@
-<h1>Register for </h1>
+<h1>Register as New Employer</h1>
 
 <%= form_for @user do |f| %>
+<p>
     <%= f.label :email %>
     <%= f.text_field :email %><br>
-
+</p>
+<p>
     <%= f.label :password %>
+    <% if current_user && current_user.errors[:password]%>
+    <p color="red">Please include a password</p>
+    <% end %>
     <%= f.password_field :password %><br>
+</p> 
+<p>
     <%= f.label "Password Confirmation"%>
     <%= f.password_field :password_confirmation%>
+</p>   
     <%= f.submit "Register" %>
 <% end %> 

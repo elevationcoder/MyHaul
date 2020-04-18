@@ -47,7 +47,7 @@ class OffersController < ApplicationController
     private
 
     def offer_params
-        params.require(:offer).permit(:job_name, :price_offer, :due_date, :driver_ids[])
+        params.require(:offer).permit(:job_name, :price_offer, :due_date)
     end
 
     def find_offer
