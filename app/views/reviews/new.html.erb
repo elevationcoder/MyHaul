@@ -1,6 +1,6 @@
 <h1>Review for Driver</h1>
 
-<%= form_for (@review) do |f| %>
+<%= form_for [@driver, @review] do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %><br>
 

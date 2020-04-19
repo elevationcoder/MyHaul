@@ -2,25 +2,30 @@ class ReviewsController < ApplicationController
 
     before_action :review_info, only: [:show, :edit, :update, :destroy]
 
+    def index
+        @reviews = Review.find(params[:id]).comments.all
+    end
+
     def new
-        @review = Review.new
+        @driver = Driver.find(params[:driver_id])
+        @review = @driver.reviews.new()
     end
 
     def show
-        @review = Review.find(params[:id])
+        @review = Review.find(params[:review_id])
         @driver = Driver.find(params[:driver_id])
     end
 
     def create
-        binding.pry
-        @driver = Driver.find(params[:driver_id])
-        @review = @driver.reviews.build(review_params)
         # binding.pry
+        @driver = Driver.find(params[:driver_id])
+        @review = @driver.reviews.new(review_params)
+        @review.user = current_user
         if @review.save
             # binding.pry
-            redirect_to @review            
+            redirect_to driver_review_path(@driver)            
         else
-            redirect_to @review
+            render new_driver_review(@driver, @review)
         end
     end
 
@@ -39,7 +44,6 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        @driver = Driver.find(params[:driver_id])
         @review = Review.find(params[:id])
         @review.destroy
         redirect_to (@review.driver)
@@ -48,7 +52,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:title, :content)
+        params.require(:review).permit(:title, :content, :user_id)
     end
 
     def review_info

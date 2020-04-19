@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy', as: 'user_logout'
 
   resources :drivers, shallow: true do
-    resources :reviews, except: [:show, :new], shallow: true
+    resources :reviews, except: [:show], shallow: true
   end
 
   resources :users 
