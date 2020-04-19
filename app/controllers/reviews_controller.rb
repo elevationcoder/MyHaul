@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
+        binding.pry
         @driver = Driver.find(params[:driver_id])
         @review = @driver.reviews.build(review_params)
         # binding.pry

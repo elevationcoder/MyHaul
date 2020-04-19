@@ -12,9 +12,15 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             flash[:message] = "You successfully logged in! Welcome, #{@user.email}!"
             redirect_to user_path(@user)
+        elsif @user.nil?
+            flash[:notice] = "This email doesn't exist"
+            redirect_to action: "new"
         elsif params[:password].blank?
-            @user.errors.full_messages 
-            redirect_to action: 'new'
+            flash[:notice] = "Password can't ew blank"
+            redirect_to action: "new"
+        elsif @user && !@user.authenticate(params[:password])
+            flash[:notice] = "Incorrect password!"
+            redirect_to action: "new"
         else
             redirect_to "/"
         end

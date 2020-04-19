@@ -6,5 +6,9 @@
     <%= label_tag :password %>
     <%= password_field_tag :password %>
     <%= submit_tag "Login"%>
+    <%  flash.each do |name, msg| %>
+        <%= content_tag(:p, "#{msg}") %>
+    <% end %>
+
 <% end %>
 <button><a href="/register">Sign Up</a></button> 
