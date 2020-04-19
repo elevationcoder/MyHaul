@@ -15,7 +15,15 @@
       <section>
         <%= link_to_unless_current "Open Offers", offers_path%> |
         <a href="/users/login">Employer Login</a> | <a href="/drivers/login">Driver Login</a> |
-        <a href="/users/register">New Employer</a> | <a href="/drivers/signup">New Driver</a><br><br>
+        <a href="/users/register">New Employer</a> | <a href="/drivers/signup">New Driver</a><br>
+        <% if session[:user_id] %>
+          <h1><%= @user.name %></h1>
+          <h2>Email: <%= @user.email %></h2>
+          <h2>Facebook UID: <%= @user.uid %></h2>
+          <img src="<%= @user.image %>">
+        <% else %>
+          <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+        <% end %><br>
       </section>
       <section class="utility">
         <% if current_user %> 

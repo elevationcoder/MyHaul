@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.find_by(email: params[:email])
-        if @user && @user.authenticate(params[:password]) 
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             flash[:message] = "You successfully logged in! Welcome, #{@user.email}!"
             redirect_to user_path(@user)
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
             flash[:notice] = "This email doesn't exist"
             redirect_to action: "new"
         elsif params[:password].blank?
-            flash[:notice] = "Password can't ew blank"
+            flash[:notice] = "Password can't be blank"
             redirect_to action: "new"
         elsif @user && !@user.authenticate(params[:password])
             flash[:notice] = "Incorrect password!"
