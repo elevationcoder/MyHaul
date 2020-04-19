@@ -1,3 +1,6 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=222216509106977&autoLogAppEvents=1"></script>
+
 <h1>Login </h1>
 
 <%= form_tag("/users/sessions") do %>
@@ -10,5 +13,30 @@
         <%= content_tag(:p, "#{msg}") %>
     <% end %>
 
-<% end %>
+<% end %><br>
+
+<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{v6.0}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{222216509106977}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <button><a href="/register">Sign Up</a></button> 

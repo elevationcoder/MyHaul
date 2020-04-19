@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   post '/users/sessions', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy', as: 'user_logout'
 
+  get '/auth/facebook/callback' => 'sessions#create'
+
   resources :drivers, shallow: true do
     resources :reviews, except: [:show], shallow: true
   end
