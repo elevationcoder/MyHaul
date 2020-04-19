@@ -1,0 +1,5 @@
+<ol>
+<% @reviews.each do |r| %>
+    <li> <%=link_to "#{r.title} - #{r.content}", "/reviews/#{r.id}" %></li>
+<% end %>
+</ol>

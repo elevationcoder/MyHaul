@@ -3,8 +3,10 @@ class ReviewsController < ApplicationController
     before_action :review_info, only: [:show, :edit, :update, :destroy]
 
     def index
-        @id = params[:driver_id]
-        @reviews = Driver.find(@id).reviews.all
+        # binding.pry
+        review = Review.all.find_by(id: params[:driver_id])
+        driver =  review.driver
+        @reviews = driver.reviews
     end
     
     def new
@@ -13,8 +15,10 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find(params[:review_id])
-        @driver = Driver.find(params[:driver_id])
+        
+        @review = Review.find(params[:id])
+        @driver = @review.driver
+        @user = @review.user
     end
 
     def create
@@ -24,7 +28,7 @@ class ReviewsController < ApplicationController
         @review.user = current_user
         if @review.save
             # binding.pry
-            redirect_to driver_reviews_path(@driver, @review)            
+            redirect_to driver_reviews_path(@driver)            
         else
             render new_driver_review(@driver, @review)
         end

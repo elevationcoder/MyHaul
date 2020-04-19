@@ -1,0 +1,14 @@
+
+<% if current_user.class.method_defined?(:truck_type) %>
+    <br/>
+    <% if current_user.reviews.empty?%>
+        <%= content_tag(:p, "No reviews yet!")%>
+    <% else %>
+        <% current_user.reviews.each do |x|%>
+            <%= link_to content_tag(:p, x.title), review_path(x)%>
+            <%= content_tag(:p, x.content)%>
+            <%=  content_tag(:p, x.user.email)%>
+            <hr> 
+        <% end %>
+    <% end %>
+<% end %>

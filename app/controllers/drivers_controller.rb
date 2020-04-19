@@ -6,6 +6,9 @@ class DriversController < ApplicationController
     end
 
     def show
+        # binding.pry
+        @review = Review.find(params[:id])
+        @driver = @review.driver
     end
 
 

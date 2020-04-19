@@ -23,14 +23,14 @@ Rails.application.routes.draw do
   get '/users/login', to: 'sessions#new'
   post '/users/sessions', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy', as: 'user_logout'
-
-  get '/auth/facebook/callback' => 'sessions#create'
-
+  
+  get '/auth/facebook/callback', to: 'sessions#create'
+  resources :users
   resources :drivers, shallow: true do
-    resources :reviews, except: [:show], shallow: true
+    resources :reviews, shallow: true
   end
 
-  resources :users 
+   
   
   root 'welcome#home'
 

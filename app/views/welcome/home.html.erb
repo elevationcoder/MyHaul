@@ -1,1 +1,16 @@
-
+<% if !current_user%>
+    <section>
+            
+            <a href="/users/login">Employer Login</a> | <a href="/drivers/login">Driver Login</a> |
+            <a href="/users/register">New Employer</a> | <a href="/drivers/signup">New Driver</a><br>
+            <% if session[:user_id] %>
+            
+            <h2>Email: <%= current_user.email %></h2>
+            
+            
+            <% else %>
+            <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+            <% end %><br>
+    </section>
+<% end %>
+<%= render partial: "layouts/driver_reviews"%>
