@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
     before_action :review_info, only: [:show, :edit, :update, :destroy]
 
     def index
-        @reviews = Review.find(params[:id]).comments.all
+        @id = params[:driver_id]
+        @reviews = Driver.find(@id).reviews.all
     end
-
+    
     def new
         @driver = Driver.find(params[:driver_id])
         @review = @driver.reviews.new()
@@ -23,7 +24,7 @@ class ReviewsController < ApplicationController
         @review.user = current_user
         if @review.save
             # binding.pry
-            redirect_to driver_review_path(@driver)            
+            redirect_to driver_reviews_path(@driver, @review)            
         else
             render new_driver_review(@driver, @review)
         end
