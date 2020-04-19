@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(params[:user_id])
+        
+        @review = Review.find(params[:id])
+        @user = @review.user
     end
 
     def create

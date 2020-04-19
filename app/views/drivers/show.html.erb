@@ -1,11 +1,13 @@
-<p><%= @driver.name %></p>
-<p><%= @driver.email %></p>
-<p><%= @driver.truck_type %></p>
-<p><%= @driver.truck_size %></p>
-<p><%= @driver.license %><br></p>
-
-<%= @review.title%>
-
+<p>Driver Name: <%= @driver.name.capitalize %></p>
+<p>Driver Email: <%= @driver.email %></p>
+<p>Truck Type: <%= @driver.truck_type.capitalize %></p>
+<p>Truck Size: <%= @driver.truck_size %></p>
+<p>Licenses: <%= @driver.license.split(" ").join(", " ) %><br></p>
+<ol>
+<% current_user.reviews.map do |x| %>
+    <li><%= link_to x.title, review_path(x) %></li>
+<% end %>
+</ol>
 
 
 
