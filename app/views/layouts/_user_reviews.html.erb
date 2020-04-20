@@ -9,18 +9,26 @@
     .review-link {
         font-size: 30px;
         color: white;
-        margin: 0 20px 0 0;
+        padding: -100px 20px 0 0;
         font-family: Ultra;
     }
 
     .review-link > a {
         color: green;
+        line-height: 20px;
     }
 
     .review-content {
         font-size: 24px;
         color: #FFFFFF;
-        font-family: Ultra;
+        font-family: Cinzel;
+        line-height: 10px;
+    }
+
+    .review-email {
+        font-size: 12px;
+        color: #FFFFFF;
+        font-family: Lakky Reddy;
     }
 
     hr {
@@ -45,8 +53,8 @@
         <% else %>
             <% current_user.reviews.each do |x|%>
                 <span class="review-link"><%= link_to content_tag(:p, x.title), review_path(x)%></span><br>
-                <span class="review-content"><%= content_tag(:p, x.content)%></span>
-                <span class="review-content"><%= content_tag(:p, x.user.email)%></span>
+                <span class="review-content"><h3>Review:</h3> <%= content_tag(:p, x.content)%></span>
+                <span class="review-email">Submitted by: <%= content_tag(:p, x.user.email)%></span>
                 <hr> 
             <% end %>
         <% end %>
