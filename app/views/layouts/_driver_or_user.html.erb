@@ -1,3 +1,4 @@
 <% if !current_user.class.method_defined?(:truck_type) %>
-    <%= link_to_unless_current "Make New Delivery Request", new_offer_path %> |
+    <%= link_to_unless_current "Make New Delivery Request", new_offer_path %> | 
+    <%= link_to_unless_current "Look up Driver", drivers_path %>
 <% end %>

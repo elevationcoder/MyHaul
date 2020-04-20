@@ -7,8 +7,8 @@ class DriversController < ApplicationController
 
     def show
         # binding.pry
-        @review = Review.find(params[:id])
-        @driver = @review.driver
+        @driver = Driver.find_by(id: params[:id])
+        @reviews = @driver.reviews
     end
 
 

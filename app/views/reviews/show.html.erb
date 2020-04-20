@@ -2,3 +2,6 @@
 <p>Review Title: <%= @review.title %></p><br/>
 <p>Review: <%= @review.content%></p><br>
 <p>Reviewed by: <%= @user.email%></p>
+
+<%= link_to 'Edit Review', edit_review_path(@review)%>
+<%= link_to 'Delete Review', "/reviews/#{@review.id}", method: "delete"%>

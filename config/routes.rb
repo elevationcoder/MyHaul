@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   
     
   
-
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  
+  get '/auth/facebook/callback', to: 'sessions#create'
 
   get '/users/register', to: 'users#new' 
   post '/users', to: 'users#create'
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
   post '/users/sessions', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy', as: 'user_logout'
   
-  get '/auth/facebook/callback', to: 'sessions#create'
   resources :users
   resources :drivers, shallow: true do
     resources :reviews, shallow: true

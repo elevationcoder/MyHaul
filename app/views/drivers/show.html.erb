@@ -4,7 +4,7 @@
 <p>Truck Size: <%= @driver.truck_size %></p>
 <p>Licenses: <%= @driver.license.split(" ").join(", " ) %><br></p>
 <ol>
-<% current_user.reviews.map do |x| %>
+<% @driver.reviews.each do |x| %>
     <li><%= link_to x.title, review_path(x) %></li>
 <% end %>
 </ol>

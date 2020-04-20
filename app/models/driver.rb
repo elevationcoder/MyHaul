@@ -4,6 +4,7 @@ class Driver < ApplicationRecord
     has_many :reviews
     has_secure_password
     validates :email, presence: true, uniqueness: true
+    validates :license, presence: true, allow_blank: true
 
     def self.search(search)
         if search

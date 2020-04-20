@@ -1,13 +1,5 @@
 <h1>Review for Driver</h1>
 
-<%= form_for [@driver, @review] do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
-
-    <%= f.label :content, "Review" %>
-    <%= f.text_area :content %>
-    <%= f.hidden_field "user_id", value: current_user.id %>
-    <%= f.submit %>
-<% end %>
+<%= render 'form' %>
 
 

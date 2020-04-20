@@ -38,20 +38,17 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @driver = Driver.find(params[:driver_id])
         @review = Review.find(params[:id])
-        if @review.save
-            redirect_to @driver
-        else
-            redirect_to @driver
-        end
+        @review.update(review_params)
+        redirect_to driver_path(@review.driver)
 
     end
 
     def destroy
+        
         @review = Review.find(params[:id])
         @review.destroy
-        redirect_to (@review.driver)
+        redirect_to user_path(current_user) 
     end
 
     private

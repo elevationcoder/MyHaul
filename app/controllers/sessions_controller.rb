@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
                 u.password = SecureRandom.hex(64)
             end
             session[:user_id] = @user.id
- 
+          
             redirect_to user_path(@user)
         elsif @user.nil?
             flash[:notice] = "This email doesn't exist"
