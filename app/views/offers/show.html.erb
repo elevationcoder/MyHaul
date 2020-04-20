@@ -1,14 +1,40 @@
-<br>
-Job Name: <%= @offer.job_name %><br>
-Price offer: <%= @offer.price_offer %><br>
-Due By: <%= @offer.due_date%><br>
-<br>
-Submitted by: <%= @offer.user.email %>
+<style>
+    div {
+        text-align: center;
+        font-size: 20px;
+        background-color: rgba(50, 50, 200, 0.5);
+        width: 300px;
+        /* border: 15px solid green;*/
+        padding: 50px; 
+        /* margin: 20px;  */
+        margin: 0 200px 80px 450px;
+        border-radius: 25px;
+        color: white;
+        border-style: solid;
+    }
 
-<% if @offer.driver %>
-    <h3>Accepted by: <%= @offer.driver.email %></h3>
-<% else %>
-    <%= form_for(@offer) do |f| %>
-        <%= f.submit "Accept this Offer" %>
+    .due-date {
+        color: yellow;
+    }
+</style>
+
+
+
+
+
+<div>
+    <br>
+    <h3>Job Name: <%= @offer.job_name %></h3><br>
+    Price offer: <%= @offer.price_offer %><br>
+    <span class="due-date">Due By: <%= @offer.due_date%></span><br>
+    <br>
+    Submitted by: <%= @offer.user.email %>
+
+    <% if @offer.driver %>
+        <h3>Accepted by: <%= @offer.driver.email %></h3>
+    <% else %>
+        <%= form_for(@offer) do |f| %>
+            <%= f.submit "Accept this Offer" %>
+        <% end %>
     <% end %>
-<% end %>
+</div>
