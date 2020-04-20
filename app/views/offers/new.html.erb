@@ -1,11 +1,48 @@
-<br>
-<%= form_for @offer do |f| %>
-  <%= f.label :job_name %>
-  <%= f.text_field :job_name %><br>
-  <%= f.label :price_offer %>
-  <%= f.text_field :price_offer %><br>
-  <%= f.label :due_date %>
-  <%= f.datetime_field :due_date %>
-  
-  <%= f.submit %>
-<% end %>
+<style>
+input[type=text] {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=datetime] {
+  width: 50%;
+}
+
+div {
+  text-align: center;
+  font-size: 20px;
+  background-color: rgba(50, 50, 200, 0.7);
+  width: 300px;
+  /* border: 15px solid green;*/
+  padding: 50px; 
+  /* margin: 20px;  */
+  margin: 0 200px 80px 450px;
+  border-radius: 25px;
+  color: white;
+  border-style: solid;
+}
+
+input[type=submit] {
+  font-family: Fredericka the Great;
+  /* color: blue; */
+  font-size: 26px;
+}
+
+</style>
+
+
+<div>
+  <br>
+  <%= form_for @offer do |f| %>
+    <%= f.label :job_name %><br>
+    <%= f.text_field :job_name %><br>
+    <%= f.label :price_offer %><br>
+    <%= f.text_field :price_offer %><br>
+    <%= f.label :due_date %><br>
+    <%= f.datetime_field :due_date %><br>
+    <br>
+    <%= f.submit %>
+  <% end %>
+</div>
