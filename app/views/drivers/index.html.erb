@@ -1,11 +1,48 @@
-<h1>All Drivers</h1>
-<%= form_tag drivers_path, :method => "get" do %>
-    <%= label_tag(:search, "Search For Drivers: ") %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag("Search", :email => nil) %>
-<% end %>
+<style>
+    ol {
+        line-height: 30px;
+        background-color: rgba(50, 50, 200, 0.5);
+        margin: 0 800px 0 0;
+        border-radius: 25px;
+        color: white;
+        border-style: solid;
+    }
+
+    li > a {
+        color: white;
+    }
+
+    input[type=text] {
+        width: 30%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        background-color: white;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding-left: 40px;
+    }
+
+    .search-label {
+        color: white;
+        font-size: 30px;
+    }
+</style>
+<div class="search-bar">
+
+<%# SEARCH BAR %>
+
+    <%= form_tag drivers_path, :method => "get" do %>
+        <span class="search-label"><%= label_tag(:search, "Search For Drivers: ") %><br>
+        <%= text_field_tag :search, params[:search] %></span>
+        <%= submit_tag("Search", :email => nil) %>
+    <% end %>
+</div>
+<%# #All drivers %>
 <ol>
+<h1>All Drivers</h1>
 <% @drivers.each do |d| %>
-    <li> <%=link_to "#{d.truck_type} - #{d.truck_size}", driver_path(d) %></li>
+    <li> <%=link_to "#{d.name.capitalize} | #{d.truck_type} - #{d.truck_size}", driver_path(d) %></li>
 <% end %>
 </ol>
