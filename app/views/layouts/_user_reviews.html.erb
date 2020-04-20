@@ -1,13 +1,54 @@
-<% if !current_user.class.method_defined?(:truck_type) %>
-    <br/>
-    <% if current_user.reviews.empty?%>
-        <%= content_tag(:p, "No reviews yet!")%>
-    <% else %>
-        <% current_user.reviews.each do |x|%>
-            <%= link_to content_tag(:p, x.title), review_path(x)%>
-            <%= content_tag(:p, x.content)%>
-            <%=  content_tag(:p, x.user.email)%>
-            <hr> 
+<style>
+    .home-reviews {
+        font-size: 20px;
+        background-color: rgba(50, 50, 200, 0.5);
+        margin: 0 800px 0 0;
+        border-radius: 25px;
+    }
+
+    .review-link {
+        font-size: 30px;
+        color: white;
+        margin: 0 20px 0 0;
+        font-family: Ultra;
+    }
+
+    .review-link > a {
+        color: green;
+    }
+
+    .review-content {
+        font-size: 24px;
+        color: #FFFFFF;
+        font-family: Ultra;
+    }
+
+    hr {
+        width: 50%;
+        float: left;
+    }
+
+    
+</style>
+
+
+
+
+
+
+
+<div class="home-reviews">
+    <% if !current_user.class.method_defined?(:truck_type) %>
+        <br/>
+        <% if current_user.reviews.empty?%>
+            <%= content_tag(:p, "No reviews yet!")%>
+        <% else %>
+            <% current_user.reviews.each do |x|%>
+                <span class="review-link"><%= link_to content_tag(:p, x.title), review_path(x)%></span><br>
+                <span class="review-content"><%= content_tag(:p, x.content)%></span>
+                <span class="review-content"><%= content_tag(:p, x.user.email)%></span>
+                <hr> 
+            <% end %>
         <% end %>
     <% end %>
-<% end %>
+</div><br>

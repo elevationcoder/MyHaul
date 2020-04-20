@@ -4,10 +4,34 @@
     <title>MyHaul</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href='https://fonts.googleapis.com/css?family=Alfa+Slab+One|Cinzel|Lakki+Reddy|Londrina+Shadow|Righteous|Rye|Ultra|Fredericka+the+Great|' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <style>
+
+    body {
+      background-size: cover;
+      background-image: url(https://images.unsplash.com/photo-1440098334316-9b3afb87b5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80)
+    }
+
+    .utility {
+      color: blue;
+      font-family: "Righteous";
+    }
+
+    .greeting-line {
+      padding: 30px;
+      font-size: 26px;
+    }
+
+    .user-email {
+      font-size: 36px;
+      font-family: "Fredericka the Great";
+    }
+
+  </style>
 
   <body> 
     <%# NAVBAR %>
@@ -25,9 +49,9 @@
         <br/>
         
       </section>
-      <section>
+      <section class="greeting-line">
       
-      You are logged in as: <%= current_user.email  %>
+      <p>You are logged in as: <u><span class="user-email"><%= current_user.email  %></span></u>!</p>
 
       </section>    
     </nav><br>
