@@ -1,13 +1,33 @@
-<p>Driver Name: <%= @driver.name.capitalize %></p>
-<p>Driver Email: <%= @driver.email %></p>
-<p>Truck Type: <%= @driver.truck_type.capitalize %></p>
-<p>Truck Size: <%= @driver.truck_size %></p>
-<p>Licenses: <%= @driver.license.split(" ").join(", " ) %><br></p>
-<ol>
-<% @driver.reviews.each do |x| %>
-    <li><%= link_to x.title, review_path(x) %></li>
-<% end %>
-</ol>
+<style>
+    div {
+        text-align: center;
+        font-size: 20px;
+        background-color: rgba(50, 50, 200, 0.7);
+        width: 300px;
+        /* border: 15px solid green;*/
+        padding: 50px; 
+        /* margin: 20px;  */
+        margin: 0 200px 80px 450px;
+        border-radius: 25px;
+        color: white;
+        border-style: solid;
+    }
 
+</style>
+
+
+
+<div>
+    <p>Driver Name: <%= @driver.name.capitalize %></p>
+    <p>Driver Email: <%= @driver.email %></p>
+    <p>Truck Type: <%= @driver.truck_type.capitalize %></p>
+    <p>Truck Size: <%= @driver.truck_size %></p>
+    <p>Licenses: <%= @driver.license.split(" ").join(", " ) %><br></p>
+    <ol>
+    <% @driver.reviews.each do |x| %>
+        <li><%= link_to x.title, review_path(x) %></li>
+    <% end %>
+    </ol>
+</div>
 
 
