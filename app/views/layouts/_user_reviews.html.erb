@@ -31,6 +31,10 @@
         font-family: Lakky Reddy;
     }
 
+    li {
+        list-style-type: none;
+    }
+
     /* hr {
         width: 50%;
         float: left;
@@ -44,19 +48,20 @@
 
 
 
-
-<div class="home-reviews">
-    <% if !current_user.class.method_defined?(:truck_type) %>
-        <br/>
-        <% if current_user.reviews.empty?%>
-            <%= content_tag(:p, "No reviews yet!")%>
-        <% else %>
-            <% current_user.reviews.each do |x|%>
-                <span class="review-link"><%= link_to content_tag(:p, x.title), review_path(x)%></span><br>
-                <span class="review-content"><h3>Review:</h3> <%= content_tag(:p, x.content)%></span>
-                <span class="review-email">Submitted by: <%= content_tag(:p, x.user.email)%></span>
-                <hr> 
+<ol>
+    <div class="home-reviews">
+        <% if !current_user.class.method_defined?(:truck_type) %>
+            <br/>
+            <% if current_user.reviews.empty?%>
+                <%= content_tag(:p, "No reviews yet!")%>
+            <% else %>
+                <% current_user.reviews.each do |x|%>
+                    <li><span class="review-link"><%= link_to content_tag(:p, x.title), review_path(x)%></span><br>
+                    <span class="review-content"><h3>Review:</h3> <%= content_tag(:p, x.content)%></span>
+                    <span class="review-email">Submitted by: <%= content_tag(:p, x.user.email)%></span>
+                    </li><hr> 
+                <% end %>
             <% end %>
         <% end %>
-    <% end %>
-</div><br>
+    </div><br>
+</ol>
