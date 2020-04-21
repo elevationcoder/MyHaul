@@ -16,7 +16,7 @@ Logging in Returning Employers
 
 If you are a returning employer navigate to "Employer Login" or "Login with Facebook and enter your credentials to get in
 <br>
-<iframe src="https://giphy.com/embed/L4Cf2y4QfFI4NAX93h" width="400" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/L4Cf2y4QfFI4NAX93h">via GIPHY</a></p>
+<embed src="https://giphy.com/embed/L4Cf2y4QfFI4NAX93h" width="400" height="270" frameBorder="0" class="giphy-embed" allowFullScreen><p><a href="https://giphy.com/gifs/L4Cf2y4QfFI4NAX93h">via GIPHY</a></p>
    
 
 Logging in Returning Drivers
