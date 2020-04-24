@@ -20,18 +20,23 @@
             
             <a href="/users/login">Employer Login</a> | <a href="/drivers/login">Driver Login</a> |
             <a href="/users/register">New Employer</a> | <a href="/drivers/signup">New Driver</a><br>
+
+            
+
+            
+
             <% if session[:user_id] %>
             
             <h2>Email: <%= current_user.email %></h2>
             
             
             <% else %>
-            <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+            <%= link_to('Log in with Facebook!', '/auth/facebook') %>  
+            <h1>Welcome to MyHaul</h1>
+            <h2>The best place to find short-term contract delivery services!</h2>
             <% end %><br>
     </section>
 <% end %>
-<h1>Welcome to MyHaul</h1>
 
-<h2>The best place to find short-term contract delivery services!</h2>
 <%= render partial: "layouts/driver_reviews"%>
 
