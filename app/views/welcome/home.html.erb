@@ -36,7 +36,9 @@
             <h2>The best place to find short-term contract delivery services!</h2>
             <% end %><br>
     </section>
+    
 <% end %>
-
-<%= render partial: "layouts/driver_reviews"%>
+<% if current_user.class.method_defined?(:truck_type) %>
+    <%= render partial: "layouts/driver_reviews"%>
+<% end %>
 
