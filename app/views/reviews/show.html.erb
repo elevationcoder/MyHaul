@@ -1,7 +1,30 @@
-<p>Review For <%= @driver.name %></p><br/>
-<p>Review Title: <%= @review.title %></p><br/>
-<p>Review: <%= @review.content%></p><br>
-<p>Reviewed by: <%= @user.email%></p>
+<style>
+    body {
+     
+    }
 
-<%= link_to 'Edit Review', edit_review_path(@review)%>
-<%= link_to 'Delete Review', "/reviews/#{@review.id}", method: "delete"%>
+    div {
+        text-align: center;
+        font-size: 20px;
+        background-color: rgba(50, 50, 200, 0.7);
+        width: 300px;
+        height: 100%;
+        /* border: 15px solid green;*/
+        padding: 50px; 
+        margin-right: auto;
+        border-radius: 25px;
+        color: white;
+        border-style: solid;
+    }
+
+</style>
+
+<div>
+    <p>Review For <%= @driver.name %></p><br/>
+    <p>Review Title: <%= @review.title %></p><br/>
+    <p>Review: <%= @review.content%></p><br>
+    <p>Reviewed by: <%= @user.email%></p>
+
+    <%= link_to 'Edit Review', edit_review_path(@review)%>
+    <%= link_to 'Delete Review', "/reviews/#{@review.id}", method: "delete"%>
+</div>

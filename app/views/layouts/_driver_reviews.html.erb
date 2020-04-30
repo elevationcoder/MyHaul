@@ -1,14 +1,68 @@
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+     
+    }
+    #action-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .reviews-container {
+        text-align: left;
+        font-size: 20px;
+        background-color: rgba(50, 50, 200, 0.7);
+        width: 300px;
+        height: 500px;
+        /* border: 15px solid green;*/
+        padding: 50px; 
+        /* margin: 20px;  */
+        border-radius: 25px;
+        margin-right: auto;
+        color: white;
+        border-style: solid;
+        overflow-y: scroll;
+    }
 
-<% if current_user.class.method_defined?(:truck_type) %>
-    <br/>
-    <% if current_user.reviews.empty?%>
-        <%= content_tag(:p, "No reviews yet!")%>
-    <% else %>
-        <% current_user.reviews.each do |x|%>
-            <%= link_to content_tag(:p, x.title), review_path(x)%>
-            <%= content_tag(:p, x.content)%>
-            <%=  content_tag(:p, x.user.email)%>
-            <hr> 
+    .offers-container {
+        text-align: center;
+        font-size: 20px;
+        background-color: rgba(50, 50, 200, 0.7);
+        width: 300px;
+        height: 100%;
+        /* border: 15px solid green;*/
+        padding: 50px; 
+        margin-right: auto;
+        border-radius: 25px;
+        color: white;
+        border-style: solid;
+    }
+
+</style>
+<div id="action-container">
+    <div class='reviews-container'>
+        <% if current_user.class.method_defined?(:truck_type) %>
+            <br/>
+            <% if current_user.reviews.empty?%>
+                <%= content_tag(:p, "No reviews yet!")%>
+            <% else %>
+                <% current_user.reviews.each do |x|%>
+                    <%= link_to content_tag(:p, x.title), review_path(x)%>
+                    <%= content_tag(:p, x.content)%>
+                    <%= content_tag(:p, x.user.email)%>
+                    <hr> 
+                <% end %>
+            <% end %>
         <% end %>
-    <% end %>
-<% end %>
+    </div>
+    <div class="offers-container">
+    <h3>Contracted Offers</h3>
+        <% if current_user.class.method_defined?(:truck_type) %>
+            <% current_user.offers.each do |o| %>
+                <%= link_to content_tag(:p, o.job_name) %>
+            <% end %>
+        <% end %>
+    </div>    
+</div>

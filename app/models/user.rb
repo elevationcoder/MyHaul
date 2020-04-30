@@ -3,6 +3,6 @@ class User < ApplicationRecord
     has_many :offers
     has_many :drivers, through: :offers
     validates :password, presence: true
-    validates :email, presence: true
+    validates :email, presence: true, uniqueness: true
     has_secure_password
 end

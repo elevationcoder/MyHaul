@@ -1,42 +1,61 @@
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=222216509106977&autoLogAppEvents=1"></script>
+<style>
+   
+    #login-action {
+        text-align: center;
+        font-size: 20px;
+        background-color: rgba(50, 50, 200, 0.7);
+        width: 300px;
+        height: 100%;
+        /* border: 15px solid green;*/
+        padding: 50px; 
+        margin-right: auto;
+        border-radius: 25px;
+        color: white;
+        border-style: solid;
+    }
 
-<h1>Login </h1>
+</style>
+<div id='login-action'>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=222216509106977&autoLogAppEvents=1"></script>
 
-<%= form_tag("/users/sessions") do %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %><br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <%= submit_tag "Login"%>
-    <%  flash.each do |name, msg| %>
-        <%= content_tag(:p, "#{msg}") %>
-    <% end %>
+  <h1>Login </h1>
 
-<% end %><br>
+  <%= form_tag("/users/sessions") do %>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %><br>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+      <%= submit_tag "Login"%>
+      <%  flash.each do |name, msg| %>
+          <%= content_tag(:p, "#{msg}") %>
+      <% end %>
 
-<div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+  <% end %><br>
+
+  <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
 
 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '{222216509106977}',
-      cookie     : true,
-      xfbml      : true,
-      version    : '{v6.0}'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '{222216509106977}',
+        cookie     : true,
+        xfbml      : true,
+        version    : '{v6.0}'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-<button><a href="/users/register">Sign Up</a></button> 
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <button><a href="/users/register">Sign Up</a></button> 
+ </div> 
