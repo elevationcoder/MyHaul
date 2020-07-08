@@ -1,13 +1,13 @@
 class DriverSessionsController < ApplicationController
     def new
-        binding.pry
+        # binding.pry
         if session[:driver_id]
             redirect_to controller: 'welcome', action: 'home'
         end
     end
 
     def create
-        binding.pry
+        # binding.pry
         @driver = Driver.find_by(email: params[:email])
         
         if @driver
