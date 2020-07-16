@@ -1,0 +1,8 @@
+<h1>All Conversations</h1>
+<% @conversations.each do |convo| %>
+    <div>
+        <%= link_to convo.subject, conversation_path(convo)%>
+    </div>
+<%end%>
+
+<%= link_to "New Conversation", new_conversation_path %>

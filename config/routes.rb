@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   
 
+  get 'messages/index'
+  get 'messages/show'
+  get 'conversations/index'
   resources :offers, shallow: true 
   
+  resources :conversations do
+    resources :messages
+  end
     
   
   
