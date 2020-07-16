@@ -2,16 +2,22 @@
 
 <%= form_tag conversations_path, method: :post do %>
     <div>
-        <%= select_tag :user_id%>
+        <p>Select Employer: </p>
+        <p><%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %></p>
     </div>
+    
+    </div>
+        <%# <p>Select Driver: </p> %>
+        <p><!--<%= select_tag :user_id, options_from_collection_for_select(@drecipients, :id, :name) %>--></p>
+    <div>
            
     <div>
-        <%= text_field_tag :subject, placeholder="Subject"%>
+        <%= text_field_tag :subject, nil, placeholder: "Subject"%>
     </div>
     
     <div>
-        <%= text_area_tag :body, placeholder="Leave a comment"%>
+        <%= text_area_tag :body, nil, placeholder: "Leave a comment"%>
     </div>
 
-
+    <%= submit_tag %>
 <%end%>
